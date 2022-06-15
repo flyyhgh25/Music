@@ -2,7 +2,6 @@ import React from 'react'
 import image from '../images/eunwo.jpg'
 import {Img} from 'react-image'
 
-
 export default function Beranda() {
   return (
     <main>
@@ -76,9 +75,257 @@ export default function Beranda() {
                     </div>
                 </div>
             </div>
-        
-              
+        </section>
 
+        <section className='jump-back'>
+          <div className='title-flex'>
+            <h3>Jump back in</h3>
+            <h5> SEE ALL</h5>
+          </div>
+          <div className='grid-7'>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+
+        <section className='jump-back'>
+          <div className='title-flex'>
+            <h3>Jump back in</h3>
+            <h5> SEE ALL</h5>
+          </div>
+          <div className='grid-7'>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+        <section className='jump-back'>
+          <div className='title-flex'>
+            <h3>Jump back in</h3>
+            <h5> SEE ALL</h5>
+          </div>
+          <div className='grid-7'>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+        <section className='jump-back'>
+          <div className='title-flex'>
+            <h3>Jump back in</h3>
+            <h5> SEE ALL</h5>
+          </div>
+          <div className='grid-7'>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div className='isiGrid'>
+              <figure>
+                <Img src={ image } alt='profile' className='jump-img'/>
+                <figcaption>
+                  <span className='judul-span'>Daily Mix 4</span><br/>
+                  <span>Nama artis1, nama atis2, nama artis3</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
         </section>
     </main>
   )
