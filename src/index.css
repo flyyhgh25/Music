@@ -3,7 +3,8 @@
   --main-color:black;
   --second-color:rgb(26, 25, 25);
   --light-color:rgb(86, 85, 85);
-  --font-color:rgba(255, 255, 255, 0.721);
+  --light-color1:rgba(131, 131, 131, 0.837);
+  --font-color:rgba(198, 198, 198, 0.893);
   --font-color2:white;
   --blue-color:rgb(11, 11, 59);
 }
@@ -12,6 +13,7 @@ body {
   padding:0;
   font-family: Poppins;
   color: var(--font-color2);
+  font-size: 10px;
 }
 header{
   position: fixed;
@@ -90,8 +92,13 @@ li>.img-profil{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  background-color: var(--light-color1);
+  border-radius:2px;
+  cursor: pointer;
+}
+
+.grid1:hover{
   background-color: var(--light-color);
-  border-radius:5px
 }
 .grid1>.img-song{
   width:15%;
@@ -128,9 +135,13 @@ li>.img-profil{
 }
 .grid-7>.isiGrid{
   height: fit-content;
-  background-color: var(--light-color);
+  background-color: var(--light-color1);
   padding:12px;
   border-radius: 5px;
+  cursor: pointer;
+}
+.isiGrid:hover{
+  background-color: var(--light-color);
 }
 figure{
   width:100%;
@@ -142,7 +153,7 @@ figure>.jump-img{
   border-radius: 5px;
 }
 figcaption{
-  font-size: 10px; 
+  font-size: 7px; 
 }
 footer{
   z-index: 1;
@@ -163,15 +174,78 @@ footer{
   justify-content: space-between;
   padding:10px  
 }
-.currentSong{
-  background-color: aqua;
+.currentSong>Img{
+  width:45px;
+  height:45px
+}
+.currentSong>.song-title{
+  width:40%;
+  font-size: 10px;
+  padding: 10px;
+}
+.currentSong>.icon-cs{
+  padding: 15px 0px;
+  width:50%;
 }
 .audioPlayer{
-  background-color:yellow;
+  background-color:var(--main-color)
 }
 .selengkapnya{
-  background-color:green
+  background-color:var(--main-color)
 }
+@media only screen and (max-width:768px){
+  body{
+    font-size: 8px;
+  }
+  header{
+    padding:0 10px;
+    width: 16%;
+  }
+  ul li{
+    padding-top: 10px;
+  }
+  .myname{
+    margin-top: 0px;
+  }
+  .pfp li{
+    padding-top: 2px;
+    margin-right: 5px;
+    font-size: 7px;
+  }
+  li>.img-profil{
+    width: 10px;
+    height:10px;
+    border-radius: 50%;
+  }
+  .shorcut>.grid-3{
+    grid-template-columns: repeat(2,1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+   
+  }
+  .jump-back>.grid-7{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+  /* footer */
+  .currentSong>Img{
+    width:25px;
+    height:25px
+  }
+  .currentSong>.song-title{
+    width:40%;
+    font-size: 5px;
+    padding: 0 5px;
+  }
+  .currentSong>.icon-cs{
+    padding: 7px 5px;
+    width:50%;
+  }
+  
+}
+
 
 
 
