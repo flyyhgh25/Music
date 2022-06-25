@@ -23,7 +23,6 @@ ReactDOM.render(
            <Route path='/login' element={<Login/>}/>
          </Routes>
     </Router>
-   
   </React.StrictMode>,
   document.getElementById('root')
 );

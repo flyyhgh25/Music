@@ -130,10 +130,9 @@ li>.img-profil{
 .shorcut>.grid-3{
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-column-gap: 10px;
+  grid-row-gap:8px;
   height:fit-content;
-  margin-bottom: 3%;
 }
 .grid1{
   display: flex;
@@ -142,6 +141,7 @@ li>.img-profil{
   background-color: var(--light-color1);
   border-radius:2px;
   cursor: pointer;
+  height:100%;
 }
 
 .grid1:hover{
@@ -149,14 +149,13 @@ li>.img-profil{
 }
 .grid1>.img-song{
   width:15%;
+  height:100%
 }
 .img-song>.song-img{
   width:100%;
   height:100%;
 }
-.grid1>.img-song{
-  width:17%;
- }
+
 .grid1>.desc-song{
   margin: auto 20px;
   width:68%;
@@ -245,23 +244,25 @@ footer{
 .selengkapnya{
   background-color:var(--main-color)
 }
-.login{
+
+.login .log{
+  text-decoration:none;
+  color: var(--font-color); 
+  font-size: 20px;
   position:absolute;
   top:50%;
-  right:30%;
+  right:45%;
   background-color:var(--green-color);
   width: 100px;
   padding:5px;
   text-align: center;
   border-radius:6px;
-
 }
-.login .log{
-  text-decoration:none;
-  color: var(--font-color);
-  font-size: 20px;
+.halamanLogin{
+  width: 100%;
+  height:100vh;
+  background-color:black
 }
-
 @media only screen and (max-width:768px){
   body{
     font-size: 8px;

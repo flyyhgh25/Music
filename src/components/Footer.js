@@ -1,27 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {Img} from 'react-image'
 import image from '../images/eunwo.jpg'
+import SpotifyPlayer from 'react-spotify-web-playback'
 
-export default function Footer() {
-  return (
+export default function Footer({accessToken,trackUri}) {
+  const [play,setPlay] = useState(false)
+ useEffect(()=>setPlay(true),[trackUri])
+  if(!accessToken) return null
+    return (
     <footer>
-        <div className='currentSong'>
-            <Img src={image} className='currentSong-img' alt='img'/>
-            <div className='song-title'>
-                <span className='title-s'>Fade away</span> <br/>
-                <span className='pemilik'>Naryeal</span>
-            </div>
-            <div className='icon-cs'>
-                <i className='fas fa-heart'></i>
-            </div>
-        </div>
-        <div className='audioPlayer'>
-                {/* KOSONg */}
-        </div>
-        <div className='selengkapnya'>
-            <i class="fas fa-music"></i>
-            <i className='fas fa-volume-up'></i>
-        </div>
+         <SpotifyPlayer token={accessToken}
+        showSaveIcon
+        callback={state=>{
+            if(!state.isPlaying) setPlay(false)
+        }}
+        play={play}
+        uris={trackUri?[trackUri]:[]}/>
+
     </footer>
   )
 }

@@ -3,6 +3,8 @@ const app = express()
 const SpotifyWebApi = require('spotify-web-api-node')
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const lyricsFinder = require("lyrics-finder")
+
 app.use(cors())
 app.use(bodyParser.json())
 const client_id = 'c2aed3f04c3f4851a294ab44fab9feee'
@@ -36,9 +38,6 @@ app.post('/refresh',(req,res)=>{
         clientId: client_id,
         clientSecret:'9c673ff8686e40c1959eb943b5cd2611',
         redirectUri: 'http://localhost:3000',
-        // headers: {
-        //     'Authorization': 'Bearer ' + refreshToken
-        //   },
         refreshToken
     }
     )
@@ -52,9 +51,6 @@ app.post('/refresh',(req,res)=>{
         console.log('Could not refresh access token', err);
         res.sendStatus(400)
         })
-
-        
-})
-   
+}) 
 const port = 8000
 app.listen(port,()=>console.log(`Sistem berjalan pada port ${port}`))
