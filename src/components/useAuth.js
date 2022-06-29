@@ -9,7 +9,7 @@ export default function useAuth(code) {
         axios.post('http://localhost:8000/login',{
             code
         }).then(res=>{
-            console.log(res.data)
+            console.log('Detail kode : ',res.data)
             setAccessToken(res.data.accessToken)
             setRefreshToken(res.data.refreshToken)
             setExpiresIn(res.data.expiresIn)
@@ -26,11 +26,11 @@ export default function useAuth(code) {
                 refreshToken,
             }).then(res=>{
                 setAccessToken(res.data.accessToken)
-                setExpiresIn(61)
+                setExpiresIn(res.data.expiresIn)
             }).catch((err)=>{
-                console.log('Ada kesalahn',err)
+                window.location='/'
             })
-        },(expiresIn-90)*1000)
+        },(expiresIn-60)*1000)
         return ()=>clearInterval(timeout)
     },[refreshToken, expiresIn])
     return accessToken

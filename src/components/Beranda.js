@@ -8,6 +8,7 @@ import HasilPencarian from './HasilPencarian'
 import SpotifyWebApi from 'spotify-web-api-node'
 import LikedSongs from './LikedSongs'
 
+
 const spotifyApi = new SpotifyWebApi({
   clientId: 'c2aed3f04c3f4851a294ab44fab9feee'
 })
@@ -15,7 +16,8 @@ const spotifyApi = new SpotifyWebApi({
 function Beranda({code}){
   const accessToken = useAuth(code)
   console.log(`kode aplikasi ${code}`)
-  const [nama,setUser] = useState("")
+  // const [nama,setUser] = useState([])
+  const [title,setTitle] = useState("")
   const [playlist,setPlaylist] = useState([])
   const [dsAll,setDesAll] = useState(false)
   const [search,setSearch] = useState("")
@@ -24,7 +26,7 @@ function Beranda({code}){
   const [playSong,setPlaySong] = useState()
   const [lyrics, setLyrics] = useState("")
   const [likedSong,setLikedSong] = useState([])
-  const somePlaylist = playlist.slice(0,7)
+  const somePlaylist = playlist.slice(0,12)
   const allPlaylist = playlist.slice(0,30)
   useEffect(()=>{
     if(!accessToken) return
@@ -41,32 +43,36 @@ function Beranda({code}){
   }
 
   // pengguna
-  useEffect(()=>{
-    if(!accessToken) return
-    spotifyApi.getMe().then(datas=>{
-      setUser(datas.body.display_name)
-      // setID(datas.body.id)
-    })
-    .catch(err=>console.log(err))
-  },)
+  // useEffect(()=>{
+  //   if(!accessToken) return
+  //   spotifyApi.getMe().then(datas=>{
+  //     setUser(datas.body.display_name)
+  //     // setID(datas.body.id)
+  //   })
+  //   .catch(err=>console.log(err))
+  // },)
 
   // Discover Weekly
   useEffect(()=>{
     if(!accessToken) return
     spotifyApi.getPlaylist('37i9dQZEVXcTo0q4erIKDp')
     .then(data=>{
+      console.log(data.body)
+      setTitle(data.body.name)
       setPlaylist(data.body.tracks.items.map(item=>{
         return{
           name : item.track.name,
           gambar : item.track.album.images[0], 
           uri : item.track.uri,
-          id : item.track.id
+          id : item.track.id,
+          artist:item.track.artists[0].name
         }
       })) 
     })
     .catch(err=>console.log(err))
   },[accessToken])
   console.log(playlist)
+
 
 
     //liked songs
@@ -127,8 +133,6 @@ function Beranda({code}){
     .catch(err=>console.log(err))
   })
 
-
-
   function Playlist(){
     if(dsAll===false){
       return(
@@ -140,8 +144,9 @@ function Beranda({code}){
               <figure>
                 <Img src={ hasil.gambar['url'] } alt='profile' className='jump-img'/>
                 <figcaption>
-                  <a href={hasil.name}><span className='judul-span'>{hasil.name}</span></a><br/>
+                  <Link to={`/lyrics/${hasil.name}/${hasil.artist}`}><span className='judul-span'>{hasil.artist}</span><br/>
                   <span>{hasil.name}</span>
+                  </Link>
                 </figcaption>
               </figure>
             </div>
@@ -160,8 +165,10 @@ function Beranda({code}){
               <figure>
                 <Img src={ hasil.gambar['url'] } alt='profile' className='jump-img'/>
                 <figcaption>
-                  <a href={hasil.name}><span className='judul-span'>{hasil.name}</span></a><br/>
-                  <span>{hasil.name}</span>
+                <Link to={`/lyrics/${hasil.name}`}>
+                 <span className='judul-span'>{hasil.name}</span><br/>
+                  <span>{hasil.artist}</span>
+                  </Link>
                 </figcaption>
               </figure>
             </div>
@@ -187,7 +194,7 @@ function Beranda({code}){
             </ul>
             <hr/>
       </header>   
-      <main>
+      <main className='mainAll'>
         <Navbar/>
             <div className='search' id='search'>
               <input  type="text" placeholder='Cari lagu' value={search} onChange={(e)=>setSearch(e.target.value)} autocomplete="off" autofocus />
@@ -201,7 +208,6 @@ function Beranda({code}){
                 return(
                   <a href={result.url}>
                   <div className='grid1' key={result.id}>
-                  
                     <div className='img-song'>
                         <Img src={result.image} alt='profile' className='song-img'/>
                     </div>
@@ -224,11 +230,11 @@ function Beranda({code}){
                   })}
             </div>          
         </section>
-        {/* recommendation */}
+        {/* discover weekly */}
         <section className='jump-back'>
-          <div className='title-flex'>
-            <h3>{nama}'s Playlist</h3>
-            <h5 onClick={()=>{setDesAll(true)}}>SEE ALL</h5>
+          <div className='title-flex'>   
+            <h3>{title}</h3>
+            <h4 onClick={()=>{setDesAll(true)}} className='seAll'>SEE ALL</h4>
           </div>
           <div className='grid-7'>
             <Playlist/>
@@ -237,8 +243,8 @@ function Beranda({code}){
 
         <section className='jump-back'>
           <div className='title-flex'>
-            <h3>{nama}'s Liked Songs</h3>
-            <h5 onClick={()=>{setDesAll(true)}}>KembaliL</h5>
+            <h3>Liked Songs</h3>
+            <h4 onClick={()=>{setDesAll(true)}} className='seAll'>KembaliL</h4>
           </div>
           <div className='grid-7'>
           {likedSong.map(data=>{

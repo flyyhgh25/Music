@@ -3,13 +3,13 @@ const app = express()
 const SpotifyWebApi = require('spotify-web-api-node')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const lyricsFinder = require("lyrics-finder")
+// const lyricsFinder = require("lyrics-finder")
 
 app.use(cors())
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:true}))
 const client_id = 'c2aed3f04c3f4851a294ab44fab9feee'
 const client_secret = '9c673ff8686e40c1959eb943b5cd2611'
-
 
 app.post('/login',(req,res)=>{
     const code = req.body.code
@@ -26,7 +26,7 @@ app.post('/login',(req,res)=>{
         })
     })
     .catch((err)=>{
-        console.log(err)
+        // console.log(err)
         res.sendStatus(400)
     })
 })
@@ -36,11 +36,10 @@ app.post('/refresh',(req,res)=>{
     console.log(refreshToken)
     var spotifyApi = new SpotifyWebApi({
         clientId: client_id,
-        clientSecret:'9c673ff8686e40c1959eb943b5cd2611',
+        clientSecret:client_secret,
         redirectUri: 'http://localhost:3000',
         refreshToken
-    }
-    )
+    })
     spotifyApi.refreshAccessToken().then((data)=> {
         console.log('The access token has been refreshed!');
         res.json({ 
@@ -48,7 +47,7 @@ app.post('/refresh',(req,res)=>{
             expiresIn:data.body.expires_in
         })
         }).catch(err=> {
-        console.log('Could not refresh access token', err);
+        // console.log('Could not refresh access token', err);
         res.sendStatus(400)
         })
 }) 

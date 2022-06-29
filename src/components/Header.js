@@ -25,7 +25,7 @@ function Navbar(){
                 <div className='profile' onClick={()=>{setShow(false)}}>
                     <ul class='pfp'>
                         <li><Img src={ image } alt='profile' className='img-profil'/></li>
-                        <li className='myname'>MyName</li>
+                        <li className='myname'>skies</li>
                         <li className='myname'><i className="fa fa-angle-down" aria-hidden="true" ></i></li>
                     </ul>
                 </div>
@@ -40,7 +40,7 @@ function Navbar(){
                 <div className='profile'  onClick={()=>{setShow(true)}}>
                     <ul class='pfp'>
                         <li><Img src={ image } alt='profile' className='img-profil'/></li>
-                        <li className='myname'>MyName</li>
+                        <li className='myname'>skies</li>
                         <li className='myname'><i className="fa fa-angle-down" aria-hidden="true" ></i></li>
                     </ul>
                 </div>
