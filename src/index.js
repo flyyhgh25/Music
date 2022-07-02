@@ -22,7 +22,7 @@ ReactDOM.render(
          <Routes>
            <Route exact path='/' element={<App/>}/>
            <Route path='/login' element={<Login/>}/>
-           <Route path='/lyrics/:namaLagu/:namaArtist' element={<Lyric/>}/>
+           <Route path='/lyrics/:namaLagu/:namaArtist/:linkGambar' element={<Lyric/>}/>
          </Routes>
     </Router>
   </React.StrictMode>,

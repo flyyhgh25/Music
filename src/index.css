@@ -13,7 +13,6 @@ body {
   margin: 0;
   padding:0;
   font-family: Poppins;
-  color: var(--font-color2);
   font-size: 10px;
 }
 header{
@@ -39,7 +38,6 @@ header h2{
   top:9%;
   z-index: 2;
   left: 90%;
-
 }
 ul .prof{
   list-style-type: none;
@@ -51,7 +49,6 @@ ul .prof{
   position: absolute;
   background-color: blue
 }
-
 .search{
   display:none;
   width:50%;
@@ -97,8 +94,9 @@ ul li{
   width:81,5%;
   background-image:linear-gradient(180deg,var(--blue-color),var(--second-color),var(--second-color));
   height: fit-content;
+  color: var(--font-color2);
 }
-.mainAll>nav{
+nav{
   display: flex;
   justify-content: space-between;
 }
@@ -258,7 +256,6 @@ footer{
 .selengkapnya{
   background-color:var(--main-color)
 }
-
 .login .log{
   text-decoration:none;
   color: var(--font-color); 
@@ -277,6 +274,50 @@ footer{
   height:100vh;
   background-color:black
 }
+/* LYRICS PAGE */
+.Lyrics{
+  padding: 0 30px;
+  margin-left: 16%;
+  width:81,5%;
+  background-image:linear-gradient(180deg,#444444,#111111);
+  height: 40vh;
+  color: var(--font-color2);
+}
+.isi-lyrics{
+  padding: 0 30px;
+  margin-left: 16%;
+  width:81,5%;
+  background-image:linear-gradient(180deg,rgb(43,43,43),#1c1c1c,var(--second-color));
+  min-height: 60vh;
+  max-height: fit-content;
+  color: var(--font-color2);
+}
+.grid_lyrics{
+  display:grid;
+  grid-template-columns:0.5fr 1.5fr;
+  grid-column-gap: 20px;
+}
+.lyrics-pic{
+  width:100%;
+  height:fit-content;
+  border-radius: 50%;
+}
+.isiL{
+  width:30%;
+  margin: 0 auto;
+  padding:5% 0;
+  font-size: 15px;
+}
+.deskripsi h3{
+  text-transform: capitalize;
+  font-size: 30px;
+  margin-bottom: 70px;
+}
+.deskripsi span{
+  font-size: 15px;
+  color: var(--font-color)
+}
+
 @media only screen and (max-width:768px){
   body{
     font-size: 8px;

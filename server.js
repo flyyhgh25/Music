@@ -3,7 +3,7 @@ const app = express()
 const SpotifyWebApi = require('spotify-web-api-node')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-// const lyricsFinder = require("lyrics-finder")
+const lyricsFinder = require("lyrics-finder")
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -51,5 +51,11 @@ app.post('/refresh',(req,res)=>{
         res.sendStatus(400)
         })
 }) 
+
+app.get('/lyrics',async(req,res)=>{
+    console.log('berhasul')
+    const lyrics = await lyricsFinder(req.query.nama_artist,req.query.nama_lagu)|| 'Lyric tidak ditemukan'
+    res.json(lyrics)
+})
 const port = 8000
 app.listen(port,()=>console.log(`Sistem berjalan pada port ${port}`))

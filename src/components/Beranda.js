@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import {Img} from 'react-image'
-import {Navbar}  from './Header'
+import {Navbar, Header}  from './Header'
 import {Link} from 'react-router-dom'
 import Footer from './Footer'
 import useAuth from './useAuth'
@@ -28,20 +28,11 @@ function Beranda({code}){
   const [likedSong,setLikedSong] = useState([])
   const somePlaylist = playlist.slice(0,12)
   const allPlaylist = playlist.slice(0,30)
+  const [idGambar,setIdGambr] = useState("")
   useEffect(()=>{
     if(!accessToken) return
     spotifyApi.setAccessToken(accessToken)
   },[accessToken])
-  function DisplayNo(){
-    const searchD = document.getElementById('search')
-    if(searchD.style.display==='none'){
-      return searchD.style.display= 'block'
-    }
-    else{
-      return searchD.style.display= 'none'
-    }
-  }
-
   // pengguna
   // useEffect(()=>{
   //   if(!accessToken) return
@@ -67,13 +58,13 @@ function Beranda({code}){
           id : item.track.id,
           artist:item.track.artists[0].name
         }
-      })) 
+      }))
+    
+     
     })
     .catch(err=>console.log(err))
   },[accessToken])
   console.log(playlist)
-
-
 
     //liked songs
   useEffect(()=>{
@@ -85,7 +76,8 @@ function Beranda({code}){
             name : item.track.name,
             gambar : item.track.album.images[0], 
             uri : item.track.uri,
-            id : item.track.id
+            id : item.track.id,
+            artist:item.track.artists[0].name
           }
         })) 
       })
@@ -139,12 +131,13 @@ function Beranda({code}){
         <>
         {
         somePlaylist.map(hasil=>{
+          const newGambar = hasil.gambar['url'].replace('https://i.scdn.co/image/','')
           return(
             <div className='isiGrid'key={hasil.id}>
               <figure>
                 <Img src={ hasil.gambar['url'] } alt='profile' className='jump-img'/>
                 <figcaption>
-                  <Link to={`/lyrics/${hasil.name}/${hasil.artist}`}><span className='judul-span'>{hasil.artist}</span><br/>
+                  <Link to={`/lyrics/${hasil.name}/${hasil.artist}/${newGambar}`}><span className='judul-span'>{hasil.artist}</span><br/>
                   <span>{hasil.name}</span>
                   </Link>
                 </figcaption>
@@ -160,14 +153,14 @@ function Beranda({code}){
       <>
         {
         allPlaylist.map(hasil=>{
+          const newGambar = hasil.gambar['url'].replace('https://i.scdn.co/image/','')
           return(
             <div className='isiGrid'key={hasil.id}>
               <figure>
                 <Img src={ hasil.gambar['url'] } alt='profile' className='jump-img'/>
                 <figcaption>
-                <Link to={`/lyrics/${hasil.name}`}>
-                 <span className='judul-span'>{hasil.name}</span><br/>
-                  <span>{hasil.artist}</span>
+                  <Link to={`/lyrics/${hasil.name}/${hasil.artist}/${newGambar}`}><span className='judul-span'>{hasil.artist}</span><br/>
+                  <span>{hasil.name}</span>
                   </Link>
                 </figcaption>
               </figure>
@@ -181,19 +174,7 @@ function Beranda({code}){
   
   return(
     <>
-      <header>
-          <h2>MySpotify</h2>
-            <ul>
-                <li><Link to='/' className='link-header'><i className='fas fa-home'></i> &nbsp; &nbsp;Home</Link></li>
-                <li onClick={DisplayNo}><i className='fas fa-search'></i>  &nbsp; &nbsp;Search</li>
-                <li><Link to='#' className='link-header'><i class="fa-solid fa-album-collection-circle-user"></i> &nbsp; &nbsp;Your library</Link></li>
-            </ul>
-            <ul>
-                <li><Link to='/' className='link-header'><i className='fas fa-plus'></i> &nbsp; &nbsp;Create Playlist</Link></li>
-                <li><Link to='/' className='link-header'><i className='fas fa-heart'></i> &nbsp; &nbsp;Liked Songs</Link></li>
-            </ul>
-            <hr/>
-      </header>   
+      <Header/>
       <main className='mainAll'>
         <Navbar/>
             <div className='search' id='search'>
@@ -216,10 +197,9 @@ function Beranda({code}){
                     </div>
                     <div className='played'>
                         <i class="fa fa-play" aria-hidden="true"></i>
-                    </div>
-                 
-                </div>
-                </a>
+                    </div>                 
+                  </div>
+                  </a>
                 )
               })
             }
@@ -240,14 +220,13 @@ function Beranda({code}){
             <Playlist/>
           </div>
         </section>
-
         <section className='jump-back'>
           <div className='title-flex'>
             <h3>Liked Songs</h3>
             <h4 onClick={()=>{setDesAll(true)}} className='seAll'>KembaliL</h4>
           </div>
           <div className='grid-7'>
-          {likedSong.map(data=>{
+                {likedSong.map(data=>{
                   return(
                         <LikedSongs key={data.uri} likesoong={data}/>
                       )

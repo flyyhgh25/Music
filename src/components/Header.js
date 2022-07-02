@@ -48,5 +48,31 @@ function Navbar(){
     )
 }
 }
+function Header() {
+    function DisplayNo(){
+        const searchD = document.getElementById('search')
+        if(searchD.style.display==='none'){
+          return searchD.style.display= 'block'
+        }
+        else{
+          return searchD.style.display= 'none'
+        }
+      }
+    return(
+    <header>
+    <h2>MySpotify</h2>
+      <ul>
+          <li><Link to='/' className='link-header'><i className='fas fa-home'></i> &nbsp; &nbsp;Home</Link></li>
+          <li onClick={DisplayNo}><i className='fas fa-search'></i>  &nbsp; &nbsp;Search</li>
+          <li><Link to='#' className='link-header'><i class="fa-solid fa-album-collection-circle-user"></i> &nbsp; &nbsp;Your library</Link></li>
+      </ul>
+      <ul>
+          <li><Link to='/' className='link-header'><i className='fas fa-plus'></i> &nbsp; &nbsp;Create Playlist</Link></li>
+          <li><Link to='/' className='link-header'><i className='fas fa-heart'></i> &nbsp; &nbsp;Liked Songs</Link></li>
+      </ul>
+      <hr/>
+    </header>   
+    )
+}
 
-export {Navbar}
+export {Navbar, Header}
