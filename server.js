@@ -16,7 +16,7 @@ app.post('/login',(req,res)=>{
     var spotifyApi = new SpotifyWebApi({
         clientId: client_id,
         clientSecret: client_secret,
-        redirectUri: 'http://localhost:3000',
+        redirectUri: 'https://musice-spotify.herokuapp.com/',
     })
     spotifyApi.authorizationCodeGrant(code).then(data=>{
         res.json({
@@ -37,7 +37,7 @@ app.post('/refresh',(req,res)=>{
     var spotifyApi = new SpotifyWebApi({
         clientId: client_id,
         clientSecret:client_secret,
-        redirectUri: 'http://localhost:3000',
+        redirectUri: 'https://musice-spotify.herokuapp.com/',
         refreshToken
     })
     spotifyApi.refreshAccessToken().then((data)=> {
