@@ -33,15 +33,6 @@ function Beranda({code}){
     if(!accessToken) return
     spotifyApi.setAccessToken(accessToken)
   },[accessToken])
-  // pengguna
-  // useEffect(()=>{
-  //   if(!accessToken) return
-  //   spotifyApi.getMe().then(datas=>{
-  //     setUser(datas.body.display_name)
-  //     // setID(datas.body.id)
-  //   })
-  //   .catch(err=>console.log(err))
-  // },)
 
   // Discover Weekly
   useEffect(()=>{
@@ -56,11 +47,11 @@ function Beranda({code}){
           gambar : item.track.album.images[0], 
           uri : item.track.uri,
           id : item.track.id,
-          artist:item.track.artists[0].name
+          artist:item.track.artists[0].name,
+          preview:item.track.preview_url
+
         }
       }))
-    
-     
     })
     .catch(err=>console.log(err))
   },[accessToken])
@@ -124,6 +115,13 @@ function Beranda({code}){
     })
     .catch(err=>console.log(err))
   })
+  // function Foot(){
+  //   return(
+  //     <>
+  //     <Footer prev={hasil.preview_url}/>
+  //     </>
+  //   )
+  // }
 
   function Playlist(){
     if(dsAll===false){
@@ -181,7 +179,7 @@ function Beranda({code}){
               <input  type="text" placeholder='Cari lagu' value={search} onChange={(e)=>setSearch(e.target.value)} autocomplete="off" autofocus />
             </div>
             {/* hasil pencarian */}
-        <section className='shorcut'>
+        <section className='shorcut' id='shorcut'>
             <h3>Shorcut Artist</h3>
             <div className='grid-3'>
               {
@@ -211,7 +209,7 @@ function Beranda({code}){
             </div>          
         </section>
         {/* discover weekly */}
-        <section className='jump-back'>
+        <section className='jump-back' id='jump-back'>
           <div className='title-flex'>   
             <h3>{title}</h3>
             <h4 onClick={()=>{setDesAll(true)}} className='seAll'>SEE ALL</h4>
@@ -220,10 +218,10 @@ function Beranda({code}){
             <Playlist/>
           </div>
         </section>
-        <section className='jump-back'>
+        <section className='liked-song' id='liked-song'>
           <div className='title-flex'>
             <h3>Liked Songs</h3>
-            <h4 onClick={()=>{setDesAll(true)}} className='seAll'>KembaliL</h4>
+            <Link to='/'><h4>Kembali</h4></Link>
           </div>
           <div className='grid-7'>
                 {likedSong.map(data=>{
@@ -234,7 +232,7 @@ function Beranda({code}){
           </div>
         </section>
       </main>
-      {/* <Footer accessToken={accessToken}/> */}
+   
     </>
   )
 }

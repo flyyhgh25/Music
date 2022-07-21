@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {useParams} from 'react-router-dom'
 import {Img} from 'react-image'
 import {Header,Navbar} from './Header'
+import Footer from './Footer'
 import axios from 'axios'
 export default function Lyric() {
     const param = useParams()
@@ -9,13 +10,15 @@ export default function Lyric() {
     const [judul,setJudul] = useState("")
     const [gambar,setGambar] = useState("")
     const [artist,setArtist] = useState("")
+    const [previewSong,setPreviewSong] = useState("")
 
     useEffect(()=>{
        axios.get('http://localhost:8000/lyrics',{ 
         params:{
             nama_lagu:param.namaLagu,
             nama_artist:param.namaArtist,
-            gambar : param.linkGambar
+            gambar : param.linkGambar,
+            preview:param.preview
         }
        }).then(isi=>{
         const linkGambar ='https://i.scdn.co/image/'
@@ -24,6 +27,7 @@ export default function Lyric() {
         setArtist(isi.config.params.nama_artist)
         setGambar(newGambar)
         setJudul(isi.config.params.nama_lagu)
+        setPreviewSong(isi.config.params.preview)
         const ll = isi.data
         setLyrics(ll)
         console.log(isi)
@@ -55,6 +59,7 @@ export default function Lyric() {
       <div className='isiL'>
       </div>
     </div>
+    <Footer prev={previewSong}/>
   </>
   
   )

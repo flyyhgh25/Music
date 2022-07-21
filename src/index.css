@@ -166,15 +166,18 @@ li>.img-profil{
   margin: auto 10px;
  }
 
-.jump-back{
+.jump-back, .liked-song{
   height:fit-content;
   padding-bottom: 3%;
 }
-.jump-back>.title-flex{
+.liked-song{
+  display:none
+}
+.title-flex{
   display:flex;
   justify-content:space-between
 }
-.jump-back>.grid-7{
+.grid-7{
   display: grid;
   grid-template-columns: repeat(6,1fr);
   grid-column-gap: 20px;

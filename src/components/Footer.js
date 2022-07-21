@@ -3,19 +3,17 @@ import {Img} from 'react-image'
 import image from '../images/eunwo.jpg'
 import SpotifyPlayer from 'react-spotify-web-playback'
 
-export default function Footer({accessToken,trackUri}) {
-  const [play,setPlay] = useState(false)
- useEffect(()=>setPlay(true),[trackUri])
-  if(!accessToken) return null
+export default function Footer({prev}) {
+    // const link = 'https://p.scdn.co/mp3-preview/'
+    // const preview = link.concat(link)
+    console.log(prev)
     return (
     <footer>
-         <SpotifyPlayer token={accessToken}
-        showSaveIcon
-        callback={state=>{
-            if(!state.isPlaying) setPlay(false)
-        }}
-        play={play}
-        uris={trackUri?[trackUri]:[]}/>
+      <audio controls autoplay muted>
+    {/* <source src="horse.ogg" type="audio/ogg" /> */}
+    <source src={prev} type="audio/mpeg"/>
+    Your browser does not support the audio element.
+      </audio>
 
     </footer>
   )

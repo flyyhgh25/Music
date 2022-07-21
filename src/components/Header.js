@@ -58,6 +58,14 @@ function Header() {
           return searchD.style.display= 'none'
         }
       }
+    function DisplayLikes() {
+        const likedView = document.getElementById('liked-song')
+        const shorcut = document.getElementById('shorcut')
+        const jump = document.getElementById('jump-back') 
+        likedView.style.display = 'block'
+        shorcut.style.display ='none'
+        jump.style.display ='none'
+    }
     return(
     <header>
     <h2>MySpotify</h2>
@@ -68,7 +76,7 @@ function Header() {
       </ul>
       <ul>
           <li><Link to='/' className='link-header'><i className='fas fa-plus'></i> &nbsp; &nbsp;Create Playlist</Link></li>
-          <li><Link to='/' className='link-header'><i className='fas fa-heart'></i> &nbsp; &nbsp;Liked Songs</Link></li>
+          <li onClick={DisplayLikes}><i className='fas fa-heart'></i> &nbsp; &nbsp;Liked Songs</li>
       </ul>
       <hr/>
     </header>   
