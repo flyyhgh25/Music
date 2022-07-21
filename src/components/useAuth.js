@@ -6,7 +6,7 @@ export default function useAuth(code) {
     const [expiresIn, setExpiresIn] = useState()
    
     useEffect(()=>{
-        axios.post('https://musice-spotify.herokuapp.com/login',{
+        axios.post('http://localhost:8000/login',{
             code
         }).then(res=>{
             console.log('Detail kode : ',res.data)
@@ -22,7 +22,7 @@ export default function useAuth(code) {
     useEffect(()=>{ 
         if(!refreshToken || !expiresIn) return
         const timeout = setInterval(()=>{ 
-            axios.post('https://musice-spotify.herokuapp.com/refresh',{ 
+            axios.post('http://localhost:8000/refresh',{ 
                 refreshToken,
             }).then(res=>{
                 setAccessToken(res.data.accessToken)
