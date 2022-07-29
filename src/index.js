@@ -10,6 +10,7 @@ import {Beranda} from './components/Beranda';
 import Helmet from 'react-helmet';
 import Login from './components/Login';
 import Lyric from './components/Lyric';
+import firebase from './firebase'
 ReactDOM.render(
   <React.StrictMode>
       <Router>
