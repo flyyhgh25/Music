@@ -10,7 +10,7 @@ import LikedSongs from './LikedSongs'
 
 
 const spotifyApi = new SpotifyWebApi({
-  clientId: 'c2aed3f04c3f4851a294ab44fab9feee'
+  clientId: 'xxxxxxxxxxxxxxxxx'
 })
 
 function Beranda({code}){
