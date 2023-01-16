@@ -8,8 +8,8 @@ const lyricsFinder = require("lyrics-finder")
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
-const client_id = 'c2aed3f04c3f4851a294ab44fab9feee'
-const client_secret = '9c673ff8686e40c1959eb943b5cd2611'
+const client_id = 'xxx'
+const client_secret = 'xxx'
 
 app.post('/login',(req,res)=>{
     const code = req.body.code
